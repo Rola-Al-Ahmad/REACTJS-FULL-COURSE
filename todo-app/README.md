@@ -1,12 +1,54 @@
-# React + Vite
+# Todo App (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Todo application built with React 19 and Vite. Tasks persist in `localStorage` under the key `todo-app`.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add, edit, complete, and delete todos
+- Filter by tabs: All, Active, Completed
+- Persistent storage via `localStorage`
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL shown in the terminal (typically `http://localhost:5173`).
+
+## Scripts
+
+- `npm run dev`: start dev server
+- `npm run build`: production build
+- `npm run preview`: preview the production build
+- `npm run lint`: run ESLint
+
+## Project Structure (high level)
+
+```
+src/
+  main.jsx               # React root; imports global styles
+  App.jsx                # App state, handlers, and composition
+  index.css              # Global styles
+  fanta.css              # Additional/theme styles
+  components/
+    Header.jsx          # Header showing open task count
+    Tabs.jsx            # All / Active / Completed tabs
+    TodoInput.jsx       # Input and add/save interactions
+    TodoList.jsx        # Renders filtered list of todos
+    TodoCard.jsx        # Single todo actions (done/edit/delete)
+```
+
+## Data Shape
+
+Each todo is stored as:
+
+```json
+{ "input": "Task title", "complete": false }
+```
+
+## Notes
+
+- Editing a todo loads its text into the input; saving replaces the original.
+- Completed todos cannot be marked done again and are visually disabled for that action.
