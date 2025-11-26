@@ -2,6 +2,12 @@
 
 React app built with Vite for tracking coffee consumption and stats, with Firebase Auth/Firestore and Tailwind CSS.
 
+## 🔗 Live Demo
+
+👉 [View Deployed App](https://Rola-Al-Ahmad.github.io/caffiend)
+
+---
+
 ## Tech stack
 
 - React 19
